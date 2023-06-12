@@ -8,18 +8,27 @@ passos = 0
 
 for x in lista:
   if x.count('2') == 1:
-   # Verificando na Horizontal
-   for y in range(len(x)):
+    # Verificando na horizontal
     if x[x.index('2') - 1] == '1':
       passos += 1
     
     if x[x.index('2') + 1] == '1':
       passos += 1
+
     
-    break
-  
-  # Verificando na Vertical
-   print(lista[lista.index(x) - 1][x.index('2')] == '1') 
+    # Verificando na vertical
+    if lista.index(x) - 1 < 0:
+      pass
+    else:  
+      if lista[lista.index(x) - 1][x.index('2')] == '1':
+        passos += 1
+    
+    if lista.index(x) + 1 > len(lista):
+      pass
+    else:  
+      if lista[lista.index(x) + 1][x.index('2')] == '1': 
+        passos += 1
+    
 
 for x in lista:
   print(x, lista.index(x))
